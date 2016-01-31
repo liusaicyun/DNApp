@@ -27,6 +27,10 @@ class StoriesTableViewController: UITableViewController {
 		cell.titleLabel.text = "Learn iOS Design and Code"
 		cell.badgeImageView.image = UIImage(named: "badge-apple")
 		cell.avatarImageView.image = UIImage(named: "content-avatar-default")
+		cell.authorLabel.text = "Meng To, designer and coder"
+		cell.timeLabel.text = "5m"
+		cell.upvoteButton.setTitle("59", forState: UIControlState.Normal)
+		cell.commentButton.setTitle("32", forState: UIControlState.Normal)
 		
 		return cell
 	}
