@@ -520,7 +520,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="StoryCell" id="wEL-rh-3nY" customClass="StoryTableViewCell" customModule="DNApp" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="StoryCell" rowHeight="100" id="wEL-rh-3nY" customClass="StoryTableViewCell" customModule="DNApp" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="92" width="320" height="100"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wEL-rh-3nY" id="AZZ-6D-fTO">
@@ -563,19 +563,6 @@
                                             <nil key="highlightedColor"/>
                                             <size key="shadowOffset" width="0.0" height="0.0"/>
                                         </label>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZgK-Ze-fMa" customClass="SpringButton" customModule="DNApp" customModuleProvider="target">
-                                            <rect key="frame" x="25" y="55" width="70" height="33"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="33" id="SEV-iK-6Fn"/>
-                                                <constraint firstAttribute="width" constant="70" id="qhC-aD-VFa"/>
-                                            </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                            <inset key="contentEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                            <inset key="titleEdgeInsets" minX="5" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                            <state key="normal" title="813" image="icon-upvote">
-                                                <color key="titleColor" red="0.58431372549019611" green="0.65098039215686276" blue="0.70980392156862748" alpha="1" colorSpace="calibratedRGB"/>
-                                            </state>
-                                        </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dh5-gI-85t" customClass="SpringButton" customModule="DNApp" customModuleProvider="target">
                                             <rect key="frame" x="95" y="55" width="70" height="33"/>
                                             <constraints>
@@ -600,16 +587,36 @@
                                                     <exclude reference="pqw-z6-WSA"/>
                                                 </mask>
                                             </variation>
+                                            <connections>
+                                                <action selector="commentButtonDidTouch:" destination="wEL-rh-3nY" eventType="touchUpInside" id="gCh-sS-rsh"/>
+                                            </connections>
                                         </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="7h" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mLO-Fo-zKB">
-                                            <rect key="frame" x="283" y="8" width="29" height="18"/>
+                                            <rect key="frame" x="295" y="8" width="17" height="18"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                             <color key="textColor" red="0.58823529411764708" green="0.65098039215686276" blue="0.70980392156862748" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZgK-Ze-fMa" customClass="SpringButton" customModule="DNApp" customModuleProvider="target">
+                                            <rect key="frame" x="25" y="55" width="70" height="33"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="33" id="SEV-iK-6Fn"/>
+                                                <constraint firstAttribute="width" constant="70" id="qhC-aD-VFa"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                            <inset key="contentEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                            <inset key="titleEdgeInsets" minX="5" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                            <state key="normal" title="813" image="icon-upvote">
+                                                <color key="titleColor" red="0.58431372549019611" green="0.65098039215686276" blue="0.70980392156862748" alpha="1" colorSpace="calibratedRGB"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="upvoteButtonDidTouch:" destination="wEL-rh-3nY" eventType="touchUpInside" id="zBF-Ug-Rut"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                     <constraints>
                                         <constraint firstAttribute="bottomMargin" secondItem="Dh5-gI-85t" secondAttribute="bottom" constant="12" id="0OO-n5-2et"/>
+                                        <constraint firstItem="Dh5-gI-85t" firstAttribute="top" secondItem="PyF-Z8-Y2h" secondAttribute="bottom" constant="3" id="1Fq-pC-iZo"/>
                                         <constraint firstAttribute="trailing" secondItem="mLO-Fo-zKB" secondAttribute="trailing" constant="8" id="2vW-zc-HKF"/>
                                         <constraint firstAttribute="trailing" secondItem="PyF-Z8-Y2h" secondAttribute="trailing" constant="10" id="3Wi-MR-50S"/>
                                         <constraint firstItem="nsP-ES-by1" firstAttribute="leading" secondItem="x3Y-kX-9Vz" secondAttribute="leading" id="7K5-hG-0HT"/>
@@ -627,6 +634,7 @@
                                         <constraint firstItem="Dh5-gI-85t" firstAttribute="leading" secondItem="ZgK-Ze-fMa" secondAttribute="trailing" id="XFZ-h5-tOS"/>
                                         <constraint firstItem="x3Y-kX-9Vz" firstAttribute="top" secondItem="AZZ-6D-fTO" secondAttribute="top" constant="8" id="YAG-wE-hcs"/>
                                         <constraint firstItem="O7l-vp-uCu" firstAttribute="leading" secondItem="AZZ-6D-fTO" secondAttribute="leading" constant="10" id="YeL-fu-net"/>
+                                        <constraint firstItem="ZgK-Ze-fMa" firstAttribute="top" secondItem="PyF-Z8-Y2h" secondAttribute="bottom" constant="3" id="Z0E-xU-AxC"/>
                                         <constraint firstItem="Dh5-gI-85t" firstAttribute="top" secondItem="x3Y-kX-9Vz" secondAttribute="bottom" constant="25" id="ZZ0-yS-p9U"/>
                                         <constraint firstItem="mLO-Fo-zKB" firstAttribute="top" secondItem="AZZ-6D-fTO" secondAttribute="top" constant="8" id="ZvL-H1-f29"/>
                                         <constraint firstItem="Dh5-gI-85t" firstAttribute="top" secondItem="PyF-Z8-Y2h" secondAttribute="bottom" id="aQc-I4-Tkf"/>
@@ -667,6 +675,7 @@
                                             <exclude reference="aQc-I4-Tkf"/>
                                             <exclude reference="fpV-Hd-e09"/>
                                             <exclude reference="pwd-Xf-n83"/>
+                                            <exclude reference="fRS-Qa-3uD"/>
                                         </mask>
                                     </variation>
                                 </tableViewCellContentView>
