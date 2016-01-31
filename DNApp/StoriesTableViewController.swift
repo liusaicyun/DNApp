@@ -18,4 +18,23 @@ class StoriesTableViewController: UITableViewController {
 		performSegueWithIdentifier("LoginSegue", sender: self)
 	}
 	
+	override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+		return 1
+	}
+	
+	override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+		let cell = tableView.dequeueReusableCellWithIdentifier("StoryCell") as! StoryTableViewCell
+		cell.titleLabel.text = "Learn iOS Design and Code"
+		cell.badgeImageView.image = UIImage(named: "badge-apple")
+		cell.avatarImageView.image = UIImage(named: "content-avatar-default")
+		
+		return cell
+	}
+	// Mark:
+	override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+		performSegueWithIdentifier("WebSegue", sender: self)
+		tableView.deselectRowAtIndexPath(indexPath, animated: true)
+	}
+	
+	
 }

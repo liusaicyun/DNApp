@@ -1,28 +1,21 @@
 //
-//  LoginViewController.swift
+//  MenuViewController.swift
 //  DNApp
 //
-//  Created by SaiCyun Liu on 2016-01-30.
+//  Created by SaiCyun Liu on 2016-01-31.
 //  Copyright © 2016年 SaiCyun Liu. All rights reserved.
 //
 
 import UIKit
 
-class LoginViewController: UIViewController {
+class MenuViewController: UIViewController {
 
 	@IBOutlet weak var dialogView: DesignableView!
 	@IBAction func closeButtonDidTouch(sender: AnyObject) {
 		dismissViewControllerAnimated(true, completion: nil)
-	}
-
-	@IBAction func loginButtonDidTouch(sender: AnyObject) {
-        dialogView.animation = "shake"
+		
+		dialogView.animation = "fale"
 		dialogView.animate()
 	}
 
-
-	override func viewDidLoad() {
-		super.viewDidLoad()
-
-	}
 }
