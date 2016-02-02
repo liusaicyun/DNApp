@@ -8,7 +8,9 @@
 
 import UIKit
 
-class StoriesTableViewController: UITableViewController {
+
+
+class StoriesTableViewController: UITableViewController,StoryTableViewCellDelegate {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 //		UIApplication.sharedApplication().setStatusBarStyle(UIStatusBarStyle.LightContent, animated: true)
@@ -28,19 +30,14 @@ class StoriesTableViewController: UITableViewController {
 	}
 	
 	override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return 1
+		return data.count
 	}
 	
-	override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell                   = tableView.dequeueReusableCellWithIdentifier("StoryCell") as! StoryTableViewCell
-        cell.titleLabel.text       = "Learn iOS Design and Code"
-        cell.badgeImageView.image  = UIImage(named: "badge-apple")
-        cell.avatarImageView.image = UIImage(named: "content-avatar-default")
-        cell.authorLabel.text      = "Meng To, designer and coder"
-        cell.timeLabel.text        = "5m"
-		cell.upvoteButton.setTitle("59", forState: UIControlState.Normal)
-		cell.commentButton.setTitle("32", forState: UIControlState.Normal)
-		
+	override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell { //获取第几个cell cellForRowAtIndexPath，这个函数是否是在映射 cell 的时候发生？而且必然会发生？ 网友的解释是获得某一行的对象，这一行的数据从 return 来
+		let cell                   = tableView.dequeueReusableCellWithIdentifier("StoryCell") as! StoryTableViewCell  //在载入 StoriesTableViewController 的时候将执行一下操作，声明 StoryCell 可重用，并赋值给 cell 变量
+		let story = data[indexPath.row]		//story 其实是字典类型，将数据源赋值给 字典型 story
+		cell.configureWithStory(story)		//对 story 的数据进行加工，并映射到 cell
+        cell.delegate              = self// self 指的是实例化的 StoriesTableViewController ，在这里是 StoryBoard 里的那个 UITableViewController ，由它来代理 cell 的请求。（也就是执行那两个函数）
 		return cell
 	}
 	// Mark:
@@ -49,6 +46,14 @@ class StoriesTableViewController: UITableViewController {
 		tableView.deselectRowAtIndexPath(indexPath, animated: true)
 	}
 	
+	//MARK: StoryTableViewCellDelegate
 	
+	func storyTableViewCellDidTouchUpvote(cell: StoryTableViewCell, sender: AnyObject) {
+		//TODO: Implenment Upvote
+	}
+	
+	func storyTableViewCellDidTouchComment(cell: StoryTableViewCell, sender: AnyObject) {
+		performSegueWithIdentifier("CommentsSegue", sender: self)
+	}
 	
 }

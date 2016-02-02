@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B63D9ACD1C609B7B004860A7 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63D9ACC1C609B7B004860A7 /* Data.swift */; };
 		B652E5F61C5DFD9000938AE8 /* StoriesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B652E5F51C5DFD9000938AE8 /* StoriesTableViewController.swift */; };
 		B6556D681C5B880F00822FB1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6556D671C5B880F00822FB1 /* AppDelegate.swift */; };
 		B6556D6D1C5B880F00822FB1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6556D6B1C5B880F00822FB1 /* Main.storyboard */; };
@@ -47,9 +48,11 @@
 		B6BF138F1C5E50CD001E6A52 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6BF138E1C5E50CD001E6A52 /* MenuViewController.swift */; };
 		B6BF13911C5E5268001E6A52 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6BF13901C5E5268001E6A52 /* WebViewController.swift */; };
 		B6BF13931C5E53B0001E6A52 /* StoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6BF13921C5E53B0001E6A52 /* StoryTableViewCell.swift */; };
+		B6E372A51C60909400B57592 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E372A41C60909400B57592 /* SwiftyJSON.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B63D9ACC1C609B7B004860A7 /* Data.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		B652E5F51C5DFD9000938AE8 /* StoriesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoriesTableViewController.swift; sourceTree = "<group>"; };
 		B6556D641C5B880F00822FB1 /* DNApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DNApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6556D671C5B880F00822FB1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -93,6 +96,7 @@
 		B6BF138E1C5E50CD001E6A52 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		B6BF13901C5E5268001E6A52 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		B6BF13921C5E53B0001E6A52 /* StoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryTableViewCell.swift; sourceTree = "<group>"; };
+		B6E372A41C60909400B57592 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,14 +130,16 @@
 			isa = PBXGroup;
 			children = (
 				B6556DC01C5B9C0D00822FB1 /* Spring */,
+				B6556D6B1C5B880F00822FB1 /* Main.storyboard */,
 				B6556D671C5B880F00822FB1 /* AppDelegate.swift */,
 				B652E5F51C5DFD9000938AE8 /* StoriesTableViewController.swift */,
 				B6BF13921C5E53B0001E6A52 /* StoryTableViewCell.swift */,
 				B6BF138E1C5E50CD001E6A52 /* MenuViewController.swift */,
 				B6BF13901C5E5268001E6A52 /* WebViewController.swift */,
 				B6940F941C5CED97007EC279 /* LoginViewController.swift */,
-				B6556D6B1C5B880F00822FB1 /* Main.storyboard */,
 				B6940F961C5D19BF007EC279 /* LearnViewController.swift */,
+				B63D9ACC1C609B7B004860A7 /* Data.swift */,
+				B6E372A41C60909400B57592 /* SwiftyJSON.swift */,
 				B6556D711C5B880F00822FB1 /* Assets.xcassets */,
 				B6556D731C5B880F00822FB1 /* LaunchScreen.storyboard */,
 				B6556D761C5B880F00822FB1 /* Info.plist */,
@@ -212,6 +218,7 @@
 				TargetAttributes = {
 					B6556D631C5B880F00822FB1 = {
 						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = ND5WP9UUXN;
 					};
 				};
 			};
@@ -256,6 +263,7 @@
 				B6556DE51C5B9C0E00822FB1 /* DesignableLabel.swift in Sources */,
 				B6556DF41C5B9C0E00822FB1 /* SpringImageView.swift in Sources */,
 				B6556DE11C5B9C0E00822FB1 /* AutoTextView.swift in Sources */,
+				B6E372A51C60909400B57592 /* SwiftyJSON.swift in Sources */,
 				B6556DEA1C5B9C0E00822FB1 /* ImageLoader.swift in Sources */,
 				B6BF138F1C5E50CD001E6A52 /* MenuViewController.swift in Sources */,
 				B6556DEF1C5B9C0E00822FB1 /* Misc.swift in Sources */,
@@ -276,6 +284,7 @@
 				B6556DF91C5B9C0E00822FB1 /* TransitionManager.swift in Sources */,
 				B6556DF51C5B9C0E00822FB1 /* SpringLabel.swift in Sources */,
 				B6556DDF1C5B9C0E00822FB1 /* AsyncButton.swift in Sources */,
+				B63D9ACD1C609B7B004860A7 /* Data.swift in Sources */,
 				B652E5F61C5DFD9000938AE8 /* StoriesTableViewController.swift in Sources */,
 				B6556DE01C5B9C0E00822FB1 /* AsyncImageView.swift in Sources */,
 				B6556DE81C5B9C0E00822FB1 /* DesignableTextView.swift in Sources */,
@@ -400,6 +409,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = DNApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.liaosc.DNApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -412,6 +422,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = DNApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.liaosc.DNApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
