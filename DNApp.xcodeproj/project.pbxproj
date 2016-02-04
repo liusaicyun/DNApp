@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B61EE32E1C62504E00073F16 /* CommentsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61EE32D1C62504E00073F16 /* CommentsTableViewController.swift */; };
 		B63D9ACD1C609B7B004860A7 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63D9ACC1C609B7B004860A7 /* Data.swift */; };
 		B652E5F61C5DFD9000938AE8 /* StoriesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B652E5F51C5DFD9000938AE8 /* StoriesTableViewController.swift */; };
 		B6556D681C5B880F00822FB1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6556D671C5B880F00822FB1 /* AppDelegate.swift */; };
@@ -52,6 +53,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B61EE32D1C62504E00073F16 /* CommentsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentsTableViewController.swift; sourceTree = "<group>"; };
 		B63D9ACC1C609B7B004860A7 /* Data.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		B652E5F51C5DFD9000938AE8 /* StoriesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoriesTableViewController.swift; sourceTree = "<group>"; };
 		B6556D641C5B880F00822FB1 /* DNApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DNApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -131,6 +133,7 @@
 			children = (
 				B6556DC01C5B9C0D00822FB1 /* Spring */,
 				B6556D6B1C5B880F00822FB1 /* Main.storyboard */,
+				B61EE32D1C62504E00073F16 /* CommentsTableViewController.swift */,
 				B6556D671C5B880F00822FB1 /* AppDelegate.swift */,
 				B652E5F51C5DFD9000938AE8 /* StoriesTableViewController.swift */,
 				B6BF13921C5E53B0001E6A52 /* StoryTableViewCell.swift */,
@@ -289,6 +292,7 @@
 				B6556DE01C5B9C0E00822FB1 /* AsyncImageView.swift in Sources */,
 				B6556DE81C5B9C0E00822FB1 /* DesignableTextView.swift in Sources */,
 				B6556DF81C5B9C0E00822FB1 /* SpringView.swift in Sources */,
+				B61EE32E1C62504E00073F16 /* CommentsTableViewController.swift in Sources */,
 				B6556DF71C5B9C0E00822FB1 /* SpringTextView.swift in Sources */,
 				B6556DEC1C5B9C0E00822FB1 /* KeyboardLayoutConstraint.swift in Sources */,
 				B6BF13911C5E5268001E6A52 /* WebViewController.swift in Sources */,

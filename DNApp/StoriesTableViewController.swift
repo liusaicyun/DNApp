@@ -13,12 +13,11 @@ import UIKit
 class StoriesTableViewController: UITableViewController,StoryTableViewCellDelegate {
 	override func viewDidLoad() {
 		super.viewDidLoad()
-//		UIApplication.sharedApplication().setStatusBarStyle(UIStatusBarStyle.LightContent, animated: true)
 	func preferredStatusBarStyle()->UIStatusBarStyle{
 			return UIStatusBarStyle.LightContent
 		}
-		tableView.estimatedRowHeight = 100
-		tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 100
+        tableView.rowHeight          = UITableViewAutomaticDimension
 	}
 
 	@IBAction func menuButtonDidTouch(sender: AnyObject) {
@@ -33,11 +32,11 @@ class StoriesTableViewController: UITableViewController,StoryTableViewCellDelega
 		return data.count
 	}
 	
-	override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell { //获取第几个cell cellForRowAtIndexPath，这个函数是否是在映射 cell 的时候发生？而且必然会发生？ 网友的解释是获得某一行的对象，这一行的数据从 return 来
-		let cell                   = tableView.dequeueReusableCellWithIdentifier("StoryCell") as! StoryTableViewCell  //在载入 StoriesTableViewController 的时候将执行一下操作，声明 StoryCell 可重用，并赋值给 cell 变量
-		let story = data[indexPath.row]		//story 其实是字典类型，将数据源赋值给 字典型 story
+	override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell { //获取第几个cell cellForRowAtIndexPath，这个函数是否是在映射 cell 的时候发生？而且必然会发生？ 网友的解释是获得某一行的对象，这一行的数据从 return 来。   updata: 在这个函数里，其实在运行的时候（初始化 tableViewController 的时候，执行这个函数。这时候我们获得了当前这个 Cell 的 NSIndexPath 对象（其实是传入进来的），根据这个对象的 row 属性，就可以返回正确的 Cell 实例。
+        let cell      = tableView.dequeueReusableCellWithIdentifier("StoryCell") as! StoryTableViewCell		//在载入 StoriesTableViewController 的时候将执行一下操作，声明 StoryCell 可重用，并赋值给 cell 变量
+        let story     = data[indexPath.row]//story 其实是字典类型，将数据源赋值给 字典型 story
 		cell.configureWithStory(story)		//对 story 的数据进行加工，并映射到 cell
-        cell.delegate              = self// self 指的是实例化的 StoriesTableViewController ，在这里是 StoryBoard 里的那个 UITableViewController ，由它来代理 cell 的请求。（也就是执行那两个函数）
+        cell.delegate = self// self 指的是实例化的 StoriesTableViewController ，在这里是 StoryBoard 里的那个 UITableViewController ，由它来代理 cell 的请求。（也就是执行那两个函数）
 		return cell
 	}
 	// Mark:
@@ -53,7 +52,16 @@ class StoriesTableViewController: UITableViewController,StoryTableViewCellDelega
 	}
 	
 	func storyTableViewCellDidTouchComment(cell: StoryTableViewCell, sender: AnyObject) {
-		performSegueWithIdentifier("CommentsSegue", sender: self)
+		performSegueWithIdentifier("CommentsSegue", sender: cell)				// 当用户触碰 Comment 按钮时，调用 Comment是Segue，并将 cell 发出去
+	}
+	
+	// MARk: Misc
+	override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+		if segue.identifier == "CommentsSegue" {
+            let toView    = segue.destinationViewController as! CommentsTableViewController
+            let indexPath = tableView.indexPathForCell(sender as! UITableViewCell)!//获取 tableView 里 sender 这个 cell，这个函数是 给个 Cell，返回 IndexPath。这里得到了 Cell 实例的indexPath（通过 sender 传过来）
+            toView.story  = data[indexPath.row]
+		}
 	}
 	
 }

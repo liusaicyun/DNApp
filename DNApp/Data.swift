@@ -6,7 +6,7 @@
 //  Copyright © 2016年 SaiCyun Liu. All rights reserved.
 //
 import UIKit
-var data: [[String:AnyObject]] = [
+var data: JSON = [
 	[
 		"id": 44959,
 		"title": "Testing Apple watch applications my way!",
