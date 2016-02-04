@@ -691,7 +691,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="StoryCell" rowHeight="140" id="5Lk-ty-Xbz" customClass="StoryTableViewCell" customModule="DNApp" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="StoryCell" rowHeight="140" id="5Lk-ty-Xbz" customClass="StoryTableViewCell" customModule="DNApp" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="92" width="320" height="140"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5Lk-ty-Xbz" id="NGU-ET-kyI">
@@ -784,7 +784,7 @@
                                                 <action selector="upvoteButtonDidTouch:" destination="5Lk-ty-Xbz" eventType="touchUpInside" id="F53-Cl-REp"/>
                                             </connections>
                                         </button>
-                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="text" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="SZO-S5-Yx7">
+                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="text" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="SZO-S5-Yx7" customClass="AutoTextView" customModule="DNApp" customModuleProvider="target">
                                             <rect key="frame" x="35" y="90" width="270" height="38"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
@@ -873,6 +873,135 @@
                                     <outlet property="timeLabel" destination="1QB-un-yUg" id="zuG-BK-hmb"/>
                                     <outlet property="titleLabel" destination="4cy-FI-Gnu" id="t2W-lh-Y9b"/>
                                     <outlet property="upvoteButton" destination="vLC-T8-Piw" id="LVp-Xi-JmI"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="CommentCell" rowHeight="120" id="Yki-6T-rNg" customClass="CommentTableViewCell" customModule="DNApp" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="232" width="320" height="120"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Yki-6T-rNg" id="hsg-Pj-dx7">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="120"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bAP-Ct-ohq">
+                                            <rect key="frame" x="10" y="8" width="20" height="20"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="20" id="acx-Yk-tL3"/>
+                                                <constraint firstAttribute="height" constant="20" id="alm-yA-zwK"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Author" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HbB-lK-Mhh">
+                                            <rect key="frame" x="35" y="8" width="240" height="22"/>
+                                            <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="16"/>
+                                            <color key="textColor" red="0.58431372549019611" green="0.65098039215686276" blue="0.70980392156862748" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                            <size key="shadowOffset" width="0.0" height="0.0"/>
+                                        </label>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nbG-Zo-djg" customClass="SpringButton" customModule="DNApp" customModuleProvider="target">
+                                            <rect key="frame" x="95" y="33" width="70" height="33"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="33" id="CxX-87-ljp"/>
+                                                <constraint firstAttribute="height" constant="33" id="Km3-zP-ivf"/>
+                                                <constraint firstAttribute="width" constant="70" id="RAf-bV-dYL"/>
+                                                <constraint firstAttribute="width" constant="70" id="SH3-Co-Jr1"/>
+                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="70" id="VmF-k6-OlQ"/>
+                                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="33" id="khq-b6-fvy"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                            <inset key="contentEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                            <inset key="titleEdgeInsets" minX="5" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                            <state key="normal" image="icon-reply">
+                                                <color key="titleColor" red="0.58431372550000005" green="0.65098039220000004" blue="0.70980392160000005" alpha="1" colorSpace="calibratedRGB"/>
+                                            </state>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="CxX-87-ljp"/>
+                                                    <exclude reference="RAf-bV-dYL"/>
+                                                    <exclude reference="VmF-k6-OlQ"/>
+                                                    <exclude reference="khq-b6-fvy"/>
+                                                </mask>
+                                            </variation>
+                                            <connections>
+                                                <action selector="replyButtonDidTouch:" destination="Yki-6T-rNg" eventType="touchUpInside" id="lFO-IV-ze2"/>
+                                            </connections>
+                                        </button>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="7h" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q6h-Nm-EMb">
+                                            <rect key="frame" x="295" y="8" width="17" height="18"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                            <color key="textColor" red="0.58823529409999997" green="0.65098039220000004" blue="0.70980392160000005" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hGi-lw-VUA" customClass="SpringButton" customModule="DNApp" customModuleProvider="target">
+                                            <rect key="frame" x="25" y="33" width="70" height="33"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="70" id="MaW-o1-PNL"/>
+                                                <constraint firstAttribute="height" constant="33" id="hUX-Ii-anh"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                            <inset key="contentEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                            <inset key="titleEdgeInsets" minX="5" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                            <state key="normal" title="813" image="icon-upvote">
+                                                <color key="titleColor" red="0.58431372550000005" green="0.65098039220000004" blue="0.70980392160000005" alpha="1" colorSpace="calibratedRGB"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="upvoteButtonDidTouch:" destination="Yki-6T-rNg" eventType="touchUpInside" id="KDf-Rz-MDn"/>
+                                            </connections>
+                                        </button>
+                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="text" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="L80-ya-ELc" customClass="AutoTextView" customModule="DNApp" customModuleProvider="target">
+                                            <rect key="frame" x="35" y="68" width="270" height="40"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        </textView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="Q6h-Nm-EMb" secondAttribute="trailing" constant="8" id="48w-H7-fq9"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="nbG-Zo-djg" secondAttribute="bottom" constant="4" id="6yj-Ul-SVv"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="nbG-Zo-djg" secondAttribute="bottom" constant="12" id="7mB-9x-6MQ"/>
+                                        <constraint firstItem="bAP-Ct-ohq" firstAttribute="top" secondItem="hsg-Pj-dx7" secondAttribute="top" constant="8" id="8Se-hB-gRC"/>
+                                        <constraint firstItem="HbB-lK-Mhh" firstAttribute="top" secondItem="hsg-Pj-dx7" secondAttribute="top" constant="8" id="Chh-GE-LwW"/>
+                                        <constraint firstAttribute="trailing" secondItem="HbB-lK-Mhh" secondAttribute="trailing" constant="45" id="DN1-ot-w6J"/>
+                                        <constraint firstItem="hGi-lw-VUA" firstAttribute="leading" secondItem="hsg-Pj-dx7" secondAttribute="leading" constant="25" id="HBn-zz-Tbx"/>
+                                        <constraint firstItem="bAP-Ct-ohq" firstAttribute="leading" secondItem="hsg-Pj-dx7" secondAttribute="leading" constant="10" id="JVz-u2-6js"/>
+                                        <constraint firstItem="L80-ya-ELc" firstAttribute="leading" secondItem="hsg-Pj-dx7" secondAttribute="leading" constant="35" id="KDa-oc-tAd"/>
+                                        <constraint firstItem="L80-ya-ELc" firstAttribute="top" secondItem="hGi-lw-VUA" secondAttribute="bottom" constant="2" id="LQ9-he-GE7"/>
+                                        <constraint firstItem="nbG-Zo-djg" firstAttribute="leading" secondItem="hGi-lw-VUA" secondAttribute="trailing" id="LaT-9z-87L"/>
+                                        <constraint firstItem="L80-ya-ELc" firstAttribute="top" secondItem="nbG-Zo-djg" secondAttribute="bottom" constant="2" id="LfM-Ex-2Vw"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="nbG-Zo-djg" secondAttribute="bottom" constant="12" id="LyM-3A-KTs"/>
+                                        <constraint firstAttribute="trailing" secondItem="L80-ya-ELc" secondAttribute="trailing" constant="15" id="N9F-91-Zxj"/>
+                                        <constraint firstAttribute="bottom" secondItem="L80-ya-ELc" secondAttribute="bottom" constant="12" id="ZA8-rV-zH0"/>
+                                        <constraint firstItem="nbG-Zo-djg" firstAttribute="top" secondItem="HbB-lK-Mhh" secondAttribute="bottom" constant="3" id="aHI-ME-C8A"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="hGi-lw-VUA" secondAttribute="bottom" constant="4" id="anm-1K-9D3"/>
+                                        <constraint firstItem="nbG-Zo-djg" firstAttribute="top" secondItem="HbB-lK-Mhh" secondAttribute="bottom" constant="25" id="eEs-qz-Ygl"/>
+                                        <constraint firstItem="Q6h-Nm-EMb" firstAttribute="leading" secondItem="HbB-lK-Mhh" secondAttribute="trailing" constant="8" id="hWB-4K-Ued"/>
+                                        <constraint firstItem="Q6h-Nm-EMb" firstAttribute="top" secondItem="hsg-Pj-dx7" secondAttribute="top" constant="8" id="n8H-SU-Bqh"/>
+                                        <constraint firstItem="hGi-lw-VUA" firstAttribute="top" secondItem="HbB-lK-Mhh" secondAttribute="bottom" constant="3" id="noI-aT-PeY"/>
+                                        <constraint firstItem="nbG-Zo-djg" firstAttribute="top" secondItem="HbB-lK-Mhh" secondAttribute="bottom" id="q0h-eG-dIl"/>
+                                        <constraint firstItem="HbB-lK-Mhh" firstAttribute="leading" secondItem="bAP-Ct-ohq" secondAttribute="trailing" constant="5" id="qj9-of-zMz"/>
+                                        <constraint firstAttribute="bottom" secondItem="hGi-lw-VUA" secondAttribute="bottom" constant="12" id="rHI-J2-YPQ"/>
+                                        <constraint firstItem="nbG-Zo-djg" firstAttribute="leading" secondItem="hGi-lw-VUA" secondAttribute="trailing" id="vT7-7Z-9Nk"/>
+                                    </constraints>
+                                    <variation key="default">
+                                        <mask key="constraints">
+                                            <exclude reference="anm-1K-9D3"/>
+                                            <exclude reference="rHI-J2-YPQ"/>
+                                            <exclude reference="6yj-Ul-SVv"/>
+                                            <exclude reference="7mB-9x-6MQ"/>
+                                            <exclude reference="LaT-9z-87L"/>
+                                            <exclude reference="LyM-3A-KTs"/>
+                                            <exclude reference="eEs-qz-Ygl"/>
+                                            <exclude reference="q0h-eG-dIl"/>
+                                            <exclude reference="hWB-4K-Ued"/>
+                                        </mask>
+                                    </variation>
+                                </tableViewCellContentView>
+                                <inset key="separatorInset" minX="35" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <connections>
+                                    <outlet property="authorLabel" destination="HbB-lK-Mhh" id="Z3n-dI-1Es"/>
+                                    <outlet property="avatarImageView" destination="bAP-Ct-ohq" id="5VR-Xh-8Fw"/>
+                                    <outlet property="commentTextView" destination="L80-ya-ELc" id="MkD-EN-8td"/>
+                                    <outlet property="replyButton" destination="nbG-Zo-djg" id="vXG-9R-Y71"/>
+                                    <outlet property="timeLabel" destination="Q6h-Nm-EMb" id="LBT-c1-qEp"/>
+                                    <outlet property="upvoteButton" destination="hGi-lw-VUA" id="NOK-UA-NDm"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -1038,6 +1167,7 @@
         <image name="icon-hamburger" width="22" height="16"/>
         <image name="icon-mail" width="26" height="18"/>
         <image name="icon-password" width="25" height="25"/>
+        <image name="icon-reply" width="20" height="16"/>
         <image name="icon-sketch" width="64" height="61"/>
         <image name="icon-twitter" width="18" height="14"/>
         <image name="icon-upvote" width="18" height="16"/>

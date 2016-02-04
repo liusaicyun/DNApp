@@ -22,7 +22,7 @@ class StoryTableViewCell: UITableViewCell {
     @IBOutlet weak var authorLabel:     UILabel!
     @IBOutlet weak var upvoteButton:    SpringButton!
     @IBOutlet weak var commentButton:   SpringButton!
-	@IBOutlet weak var commentTextView: UITextView!
+	@IBOutlet weak var commentTextView: AutoTextView!
     weak var delegate:                  StoryTableViewCellDelegate?
 	
 	@IBAction func upvoteButtonDidTouch(sender: AnyObject) {
@@ -44,7 +44,6 @@ class StoryTableViewCell: UITableViewCell {
 	func configureWithStory(story: JSON) { //让 TableViewCell 的实例跟传入的 story 数据做映射。只要 story 符合 DataSource
         let title               = story["title"].string!
         let badge               = story["badge"].string!
-        let userPortraitUrl     = story["user_portrait_url"].string!
         let userDisplayname     = story["user_display_name"].string!
         let	userJob             = story["user_job"].string!
         let createdAt           = story["created_at"].string!
