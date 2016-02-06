@@ -50,6 +50,7 @@
 		B655AF9C1C662DB200590EB6 /* TPKeyboardAvoidingScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = B655AF961C662DB200590EB6 /* TPKeyboardAvoidingScrollView.m */; };
 		B655AF9D1C662DB200590EB6 /* TPKeyboardAvoidingTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = B655AF981C662DB200590EB6 /* TPKeyboardAvoidingTableView.m */; };
 		B655AF9E1C662DB200590EB6 /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = B655AF9A1C662DB200590EB6 /* UIScrollView+TPKeyboardAvoidingAdditions.m */; };
+		B655AFDD1C664EE600590EB6 /* DNService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B655AFDC1C664EE600590EB6 /* DNService.swift */; };
 		B6940F951C5CED97007EC279 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6940F941C5CED97007EC279 /* LoginViewController.swift */; };
 		B6940F971C5D19BF007EC279 /* LearnViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6940F961C5D19BF007EC279 /* LearnViewController.swift */; };
 		B6BF138F1C5E50CD001E6A52 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6BF138E1C5E50CD001E6A52 /* MenuViewController.swift */; };
@@ -57,6 +58,19 @@
 		B6BF13931C5E53B0001E6A52 /* StoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6BF13921C5E53B0001E6A52 /* StoryTableViewCell.swift */; };
 		B6E372A51C60909400B57592 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E372A41C60909400B57592 /* SwiftyJSON.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		B655AFDB1C664EAC00590EB6 /* Embed PlugIns */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+			);
+			name = "Embed PlugIns";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		B61EE32D1C62504E00073F16 /* CommentsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentsTableViewController.swift; sourceTree = "<group>"; };
@@ -109,6 +123,7 @@
 		B655AF981C662DB200590EB6 /* TPKeyboardAvoidingTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPKeyboardAvoidingTableView.m; sourceTree = "<group>"; };
 		B655AF991C662DB200590EB6 /* UIScrollView+TPKeyboardAvoidingAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+TPKeyboardAvoidingAdditions.h"; sourceTree = "<group>"; };
 		B655AF9A1C662DB200590EB6 /* UIScrollView+TPKeyboardAvoidingAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+TPKeyboardAvoidingAdditions.m"; sourceTree = "<group>"; };
+		B655AFDC1C664EE600590EB6 /* DNService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DNService.swift; sourceTree = "<group>"; };
 		B6940F941C5CED97007EC279 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		B6940F961C5D19BF007EC279 /* LearnViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LearnViewController.swift; sourceTree = "<group>"; };
 		B6BF138E1C5E50CD001E6A52 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
@@ -162,6 +177,7 @@
 				B6940F961C5D19BF007EC279 /* LearnViewController.swift */,
 				B63D9ACC1C609B7B004860A7 /* Data.swift */,
 				B6E372A41C60909400B57592 /* SwiftyJSON.swift */,
+				B655AFDC1C664EE600590EB6 /* DNService.swift */,
 				B6556D711C5B880F00822FB1 /* Assets.xcassets */,
 				B6556D731C5B880F00822FB1 /* LaunchScreen.storyboard */,
 				B6556D761C5B880F00822FB1 /* Info.plist */,
@@ -233,6 +249,7 @@
 				B6556D601C5B880F00822FB1 /* Sources */,
 				B6556D611C5B880F00822FB1 /* Frameworks */,
 				B6556D621C5B880F00822FB1 /* Resources */,
+				B655AFDB1C664EAC00590EB6 /* Embed PlugIns */,
 			);
 			buildRules = (
 			);
@@ -304,6 +321,7 @@
 				B6556DEA1C5B9C0E00822FB1 /* ImageLoader.swift in Sources */,
 				B655AF9E1C662DB200590EB6 /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */,
 				B6BF138F1C5E50CD001E6A52 /* MenuViewController.swift in Sources */,
+				B655AFDD1C664EE600590EB6 /* DNService.swift in Sources */,
 				B6556DEF1C5B9C0E00822FB1 /* Misc.swift in Sources */,
 				B6940F971C5D19BF007EC279 /* LearnViewController.swift in Sources */,
 				B655AF841C66228300590EB6 /* NavigationViewController.swift in Sources */,
@@ -452,6 +470,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = DNApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -465,6 +484,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = DNApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
