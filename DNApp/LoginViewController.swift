@@ -9,6 +9,10 @@
 import UIKit
 
 class LoginViewController: UIViewController {
+	
+	override func preferredStatusBarStyle() -> UIStatusBarStyle {
+		return UIStatusBarStyle.LightContent
+	}
 
 	@IBOutlet weak var dialogView: DesignableView!
 	@IBAction func closeButtonDidTouch(sender: AnyObject) {
@@ -23,6 +27,10 @@ class LoginViewController: UIViewController {
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
-
 	}
+	
+	override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+		view.endEditing(true)
+	}
+	
 }

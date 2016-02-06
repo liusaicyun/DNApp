@@ -11,14 +11,21 @@ import UIKit
 
 
 class StoriesTableViewController: UITableViewController,StoryTableViewCellDelegate {
+	
+	
+	let transitionManager = TransitionManager()
+	
+	override func preferredStatusBarStyle() -> UIStatusBarStyle {
+		return UIStatusBarStyle.LightContent
+	}
 	override func viewDidLoad() {
 		super.viewDidLoad()
-	func preferredStatusBarStyle()->UIStatusBarStyle{
-			return UIStatusBarStyle.LightContent
-		}
-        tableView.estimatedRowHeight = 100
-        tableView.rowHeight          = UITableViewAutomaticDimension
+		self.setNeedsStatusBarAppearanceUpdate()
+		tableView.estimatedRowHeight = 100
+		tableView.rowHeight          = UITableViewAutomaticDimension
 	}
+	
+	
 
 	@IBAction func menuButtonDidTouch(sender: AnyObject) {
 		performSegueWithIdentifier("MenuSegue", sender: self)
@@ -41,7 +48,7 @@ class StoriesTableViewController: UITableViewController,StoryTableViewCellDelega
 	}
 	// Mark:
 	override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-		performSegueWithIdentifier("WebSegue", sender: self)
+		performSegueWithIdentifier("WebSegue", sender: indexPath)
 		tableView.deselectRowAtIndexPath(indexPath, animated: true)
 	}
 	
@@ -60,7 +67,14 @@ class StoriesTableViewController: UITableViewController,StoryTableViewCellDelega
 		if segue.identifier == "CommentsSegue" {
             let toView    = segue.destinationViewController as! CommentsTableViewController
             let indexPath = tableView.indexPathForCell(sender as! UITableViewCell)!//获取 tableView 里 sender 这个 cell，这个函数是 给个 Cell，返回 IndexPath。这里得到了 Cell 实例的indexPath（通过 sender 传过来）
-            toView.story  = data[indexPath.row]
+            toView.story  = data[indexPath.row] //这里就是提前给 CommentsTableViewController 准备的数据
+		}
+		if segue.identifier == "WebSegue" {
+			let toView = segue.destinationViewController as! WebViewController
+			let indexPath = sender as! NSIndexPath
+			let url = data[indexPath.row]["url"].string!
+			toView.url = url
+			toView.transitioningDelegate = transitionManager
 		}
 	}
 	

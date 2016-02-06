@@ -10,7 +10,7 @@ import UIKit
 
 class CommentsTableViewController: UITableViewController {
 
-	var story:    JSON!
+	var story:    JSON!		//应该是从 StoriesTableViewController 里面传过来的，在 prepareForSegue 函数里，已经给 CommentsTableViewController（toView）的 sotry 赋值，所以这里的声明只是方便将数据传进来
 	var comments: JSON!
 	
 	override func viewDidLoad() {

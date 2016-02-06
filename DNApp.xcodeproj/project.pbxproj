@@ -45,6 +45,7 @@
 		B6556DF91C5B9C0E00822FB1 /* TransitionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6556DDC1C5B9C0E00822FB1 /* TransitionManager.swift */; };
 		B6556DFA1C5B9C0E00822FB1 /* TransitionZoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6556DDD1C5B9C0E00822FB1 /* TransitionZoom.swift */; };
 		B6556DFB1C5B9C0E00822FB1 /* UnwindSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6556DDE1C5B9C0E00822FB1 /* UnwindSegue.swift */; };
+		B655AF841C66228300590EB6 /* NavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B655AF831C66228300590EB6 /* NavigationViewController.swift */; };
 		B6940F951C5CED97007EC279 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6940F941C5CED97007EC279 /* LoginViewController.swift */; };
 		B6940F971C5D19BF007EC279 /* LearnViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6940F961C5D19BF007EC279 /* LearnViewController.swift */; };
 		B6BF138F1C5E50CD001E6A52 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6BF138E1C5E50CD001E6A52 /* MenuViewController.swift */; };
@@ -95,6 +96,7 @@
 		B6556DDC1C5B9C0E00822FB1 /* TransitionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionManager.swift; sourceTree = "<group>"; };
 		B6556DDD1C5B9C0E00822FB1 /* TransitionZoom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionZoom.swift; sourceTree = "<group>"; };
 		B6556DDE1C5B9C0E00822FB1 /* UnwindSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnwindSegue.swift; sourceTree = "<group>"; };
+		B655AF831C66228300590EB6 /* NavigationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationViewController.swift; sourceTree = "<group>"; };
 		B6940F941C5CED97007EC279 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		B6940F961C5D19BF007EC279 /* LearnViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LearnViewController.swift; sourceTree = "<group>"; };
 		B6BF138E1C5E50CD001E6A52 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
@@ -135,6 +137,7 @@
 			children = (
 				B6556DC01C5B9C0D00822FB1 /* Spring */,
 				B6556D6B1C5B880F00822FB1 /* Main.storyboard */,
+				B655AF831C66228300590EB6 /* NavigationViewController.swift */,
 				B64998EF1C635D7100D9EDD5 /* CommentTableViewCell.swift */,
 				B61EE32D1C62504E00073F16 /* CommentsTableViewController.swift */,
 				B6556D671C5B880F00822FB1 /* AppDelegate.swift */,
@@ -274,6 +277,7 @@
 				B6BF138F1C5E50CD001E6A52 /* MenuViewController.swift in Sources */,
 				B6556DEF1C5B9C0E00822FB1 /* Misc.swift in Sources */,
 				B6940F971C5D19BF007EC279 /* LearnViewController.swift in Sources */,
+				B655AF841C66228300590EB6 /* NavigationViewController.swift in Sources */,
 				B6556DE21C5B9C0E00822FB1 /* BlurView.swift in Sources */,
 				B6556DFB1C5B9C0E00822FB1 /* UnwindSegue.swift in Sources */,
 				B6556DED1C5B9C0E00822FB1 /* LoadingView.swift in Sources */,
