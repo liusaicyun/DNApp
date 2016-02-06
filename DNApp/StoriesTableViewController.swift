@@ -15,12 +15,8 @@ class StoriesTableViewController: UITableViewController,StoryTableViewCellDelega
 	
 	let transitionManager = TransitionManager()
 	
-	override func preferredStatusBarStyle() -> UIStatusBarStyle {
-		return UIStatusBarStyle.LightContent
-	}
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		self.setNeedsStatusBarAppearanceUpdate()
 		tableView.estimatedRowHeight = 100
 		tableView.rowHeight          = UITableViewAutomaticDimension
 	}
