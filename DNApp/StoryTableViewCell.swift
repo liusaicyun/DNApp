@@ -43,9 +43,9 @@ class StoryTableViewCell: UITableViewCell {
 
 	func configureWithStory(story: JSON) { //让 TableViewCell 的实例跟传入的 story 数据做映射。只要 story 符合 DataSource
         let title               = story["title"].string!
-        let badge               = story["badge"].string!
+        let badge               = story["badge"].string ?? ""
         let userDisplayname     = story["user_display_name"].string!
-        let	userJob             = story["user_job"].string!
+        let	userJob             = story["user_job"].string ?? ""
         let createdAt           = story["created_at"].string!
         let voteCount           = story["vote_count"].int!
         let commentCount        = story["comment_count"].int!
