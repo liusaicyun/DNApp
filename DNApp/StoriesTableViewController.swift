@@ -10,25 +10,38 @@ import UIKit
 
 
 
-class StoriesTableViewController: UITableViewController,StoryTableViewCellDelegate {
+class StoriesTableViewController: UITableViewController,StoryTableViewCellDelegate, MenuViewControllerDelegate {
 	
 	
 	let transitionManager = TransitionManager()
 	var stories: JSON! = []
+	var isFirstTime = true
 	
-	func loadStories(section: String, page: Int) {
-		DNService.storiesForSection(section, page: page) { (JSON) -> () in
-			self.stories = JSON["Stories"]
+	func loadStories(section: String, page: Int) {		// loadStories 其实是要获得一个 变量名为 stories 的 JSON 对象。
+		print("loadStories 载入了")
+		DNService.storiesForSection(section, page: page) { (getJSON) -> () in
+			print("hello")
+			self.stories = getJSON["stories"]
 			self.tableView.reloadData()
+			self.view.hideLoading()
 		}
 	}
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
+		print("viewDidLoad")	
 		tableView.estimatedRowHeight = 100
 		tableView.rowHeight          = UITableViewAutomaticDimension
 		loadStories("", page: 1)
-//		print("JSON: \(stories)")
+	}
+	
+	override func viewDidAppear(animated: Bool) {
+		super.viewDidAppear(true)
+		print("viewDidAppear")
+		if isFirstTime {
+			view.showLoading()
+			isFirstTime = false
+		}
 	}
 	
 	
@@ -52,11 +65,28 @@ class StoriesTableViewController: UITableViewController,StoryTableViewCellDelega
         cell.delegate = self// self 指的是实例化的 StoriesTableViewController ，在这里是 StoryBoard 里的那个 UITableViewController ，由它来代理 cell 的请求。（也就是执行那两个函数）
 		return cell
 	}
-	// Mark:
+	
 	override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
 		performSegueWithIdentifier("WebSegue", sender: indexPath)
 		tableView.deselectRowAtIndexPath(indexPath, animated: true)
 	}
+	
+	//MARK: MenuViewControllerDelegate
+	
+	func menuViewControllerDidTouchTop(controller: MenuViewController) {
+		view.showLoading()
+		loadStories("", page: 1)
+		navigationItem.title = "Top Stories"
+		
+	}
+	
+	func menuViewControllerDidTouchRecent(controller: MenuViewController) {
+		view.showLoading()
+		loadStories("recent", page: 1)
+		navigationItem.title = "Recent Stories"
+		
+	}
+	
 	
 	//MARK: StoryTableViewCellDelegate
 	
@@ -81,6 +111,10 @@ class StoriesTableViewController: UITableViewController,StoryTableViewCellDelega
 			let url = stories[indexPath.row]["url"].string!
 			toView.url = url
 			toView.transitioningDelegate = transitionManager
+		}
+		if segue.identifier == "MenuSegue" {
+			let toView = segue.destinationViewController as! MenuViewController
+			toView.delegate = self	// self 指的是实例化的 StoiresTableViewContorller，由实例化的 这个Contorller 来代理 MenuViewController 的请求。
 		}
 	}
 	

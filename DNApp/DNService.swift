@@ -36,32 +36,42 @@ struct DNService {
 		}
 	}
 	
-	static func storiesForSection(section: String, page: Int, response: (JSON) -> ()) {
+	static func storiesForSection(section: String, page: Int, responseclose: (JSON) -> ()) { //根据三个参数获取 stories，section、page、response，其中response需要在闭包中获得。storiesForSection 函数的 response 参数也是 Alamofire.request 里面的参数
 		let urlString = baseURL + ResourcePath.Stories.description + "/" + section
 		let parameters = [
 			"page": String(page),
 			"client_id": clientID
 			]
-//		Alamofire.request(.GET, "https://httpbin.org/get", parameters: ["foo": "bar"])
-//			.responseJSON{ response in
-//				let stories = JSON(data ?? [])
-//				response(stories)
-//				print(response)
-//		}
+		Alamofire.request(.GET, urlString, parameters: parameters)
+			.responseJSON { response in
+				let stories = JSON(response.result.value!)
+				responseclose(stories) 			//这个就是闭包参数。现在只是声明了而已。在 loadStories 里面闭包参数有做操作。在这里做了一个映射。就是把 stories 映射到 JSON 对应的变量中。
+		}
 //		Alamofire.request(.GET, urlString, parameters: parameters).responseJSON() {
 //			response in
-//			guard let json = response.data else { return }
-//			let stories = JSON(json)
-//			print("JSON: \(stories)")
+//			let stories = JSON(response.result.value ?? [])
+//			print(stories)
+//			let stories = data
+//			let resultJSON = JSON(resultAnyObject)
+//			let stories = resultJSON["stories"]
+//			print("result: \(response.request)")
+//			print("data:\(stories)")
 //		}
-		Alamofire.request(.GET, urlString, parameters: parameters).responseJSON() {
-			response in
-			guard let resultAnyObject = response.result.value else { return }
-			let resultJSON = JSON(resultAnyObject)
-			let stories = resultJSON["stories"]
-			print("result: \(response.request)")
-			print("data:\(data)")
-			print("stories: \(stories)")
-		}
 	}
+/*	static func storiesForSection(section: String, page: Int,re: (JSON) -> ()) {
+		let urlString = baseURL + ResourcePath.Stories.description + "/" + section
+		let parameters = [
+			"page": String(page),
+			"client_id": clientID
+		]
+		
+		Alamofire.request(.GET, urlString, parameters: parameters).responseJSON() {
+			data in
+			let resuletJSON = JSON(data.result.value ?? [])
+			print(data.result.value)
+			print(resuletJSON)
+			
+			
+		}
+	}*/
 }
