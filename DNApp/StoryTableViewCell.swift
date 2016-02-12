@@ -65,7 +65,7 @@ class StoryTableViewCell: UITableViewCell {
 
         if let commentTextView           = commentTextView {
         commentTextView.text             = comment
-        commentTextView.attributedText   = htmlToAttributedString(commentHTML + "<style>*{font-family:\"Avenir Next\";font-size:16px;line-height:20px}img{max-width:300px}</style>")
+//        commentTextView.attributedText   = htmlToAttributedString(commentHTML + "<style>*{font-family:\"Avenir Next\";font-size:16px;line-height:20px}img{max-width:300px}</style>")
 		}
 	}
 

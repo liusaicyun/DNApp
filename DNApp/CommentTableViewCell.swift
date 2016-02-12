@@ -38,7 +38,7 @@ class CommentTableViewCell: UITableViewCell {
         timeLabel.text                   = timeAgoSinceDate(dateFromString(createdAt, format: "yyyy-MM-dd'T'HH:mm:ssZ"), numericDates: true)
 		upvoteButton.setTitle(String(voteCount), forState: UIControlState.Normal)
         commentTextView.text             = body
-        commentTextView.attributedText   = htmlToAttributedString(bodyHTML + "<style>*{font-family:\"Avenir Next\";font-size:16px;line-height:20px}img{max-width:300px}</style>")
+//        commentTextView.attributedText   = htmlToAttributedString(bodyHTML + "<style>*{font-family:\"Avenir Next\";font-size:16px;line-height:20px}img{max-width:300px}</style>")
 	}
 
 }

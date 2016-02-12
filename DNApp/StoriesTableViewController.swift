@@ -13,9 +13,14 @@ import UIKit
 class StoriesTableViewController: UITableViewController,StoryTableViewCellDelegate, MenuViewControllerDelegate {
 	
 	
-	let transitionManager = TransitionManager()
-	var stories: JSON! = []
-	var isFirstTime = true
+    let transitionManager = TransitionManager()
+    var stories: JSON!    = []
+    var isFirstTime       = true
+    var section           = ""		// section 指的是当前的 section
+	
+	func refreshStories() {
+		loadStories(section, page: 1)
+	}
 	
 	func loadStories(section: String, page: Int) {		// loadStories 其实是要获得一个 变量名为 stories 的 JSON 对象。
 		print("loadStories 载入了")
@@ -24,6 +29,7 @@ class StoriesTableViewController: UITableViewController,StoryTableViewCellDelega
 			self.stories = getJSON["stories"]
 			self.tableView.reloadData()
 			self.view.hideLoading()
+			self.refreshControl?.endRefreshing()
 		}
 	}
 	
@@ -33,6 +39,7 @@ class StoriesTableViewController: UITableViewController,StoryTableViewCellDelega
 		tableView.estimatedRowHeight = 100
 		tableView.rowHeight          = UITableViewAutomaticDimension
 		loadStories("", page: 1)
+		refreshControl?.addTarget(self, action: "refreshStories", forControlEvents: UIControlEvents.ValueChanged)
 	}
 	
 	override func viewDidAppear(animated: Bool) {
@@ -77,6 +84,7 @@ class StoriesTableViewController: UITableViewController,StoryTableViewCellDelega
 		view.showLoading()
 		loadStories("", page: 1)
 		navigationItem.title = "Top Stories"
+		section = ""
 		
 	}
 	
@@ -84,6 +92,7 @@ class StoriesTableViewController: UITableViewController,StoryTableViewCellDelega
 		view.showLoading()
 		loadStories("recent", page: 1)
 		navigationItem.title = "Recent Stories"
+		section = "recent"
 		
 	}
 	
