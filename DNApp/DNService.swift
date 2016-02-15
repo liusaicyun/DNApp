@@ -45,7 +45,7 @@ struct DNService {
 		Alamofire.request(.GET, urlString, parameters: parameters)
 			.responseJSON { response in
 				let stories = JSON(response.result.value!)
-				responseclose(stories) 			//这个就是闭包参数。现在只是声明了而已。在 loadStories 里面闭包参数有做操作。在这里做了一个映射。就是把 stories 映射到 JSON 对应的变量中。
+				responseclose(stories) 			//这个就是闭包参数。现在只是声明了而已。在 loadStories 里面闭包参数有做操作。在这里做了一个映射。就是把 stories 映射到 JSON 对应的变量中。目的似乎是为了使得 storiesForSection 能够直接跟 Alamofire.request 的参数做关联。因为数据由 stoires 提供。
 		}
 //		Alamofire.request(.GET, urlString, parameters: parameters).responseJSON() {
 //			response in
@@ -74,4 +74,21 @@ struct DNService {
 			
 		}
 	}*/
+	
+	static func loginWithEmail(email: String, password: String, responseString: (token: String?) -> ()) {
+        let urlString  = baseURL + ResourcePath.Login.description
+        let parameters = [
+			"grant_type": "password",
+			"username": email,
+			"password": password,
+			"client_id": clientID,
+			"client_secret": clientSecret
+		]
+		Alamofire.request(.POST, urlString, parameters: parameters).responseJSON {
+			response in
+            let json  = JSON(response.result.value!)
+            let token = json["access_token"].string!
+			responseString(token: token)
+		}
+	}
 }

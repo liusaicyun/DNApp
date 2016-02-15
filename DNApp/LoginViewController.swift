@@ -26,8 +26,17 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
 	}
 
 	@IBAction func loginButtonDidTouch(sender: AnyObject) {
-        dialogView.animation = "shake"
-		dialogView.animate()
+
+		DNService.loginWithEmail(emailTextField.text!, password: passwordTextField.text!) { (token) -> () in
+			if let token = token { // 意思是如果 token 有值，则...
+			} else {
+				self.dialogView.animation = "shake"
+				self.dialogView.animate()
+			}
+		}
+		
+		
+		
 	}
 
 
