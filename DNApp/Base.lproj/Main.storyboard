@@ -59,7 +59,7 @@
                                                                 <constraint firstAttribute="height" constant="44" id="fxR-Fx-jau"/>
                                                             </constraints>
                                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                            <textInputTraits key="textInputTraits"/>
+                                                            <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                                             <userDefinedRuntimeAttributes>
                                                                 <userDefinedRuntimeAttribute type="number" keyPath="leftPadding">
                                                                     <real key="value" value="50"/>
@@ -110,7 +110,7 @@
                                                                 <constraint firstAttribute="height" constant="44" id="iia-3e-c6v"/>
                                                             </constraints>
                                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                            <textInputTraits key="textInputTraits"/>
+                                                            <textInputTraits key="textInputTraits" autocorrectionType="no"/>
                                                             <userDefinedRuntimeAttributes>
                                                                 <userDefinedRuntimeAttribute type="number" keyPath="leftPadding">
                                                                     <real key="value" value="50"/>
@@ -1068,6 +1068,7 @@
                     </refreshControl>
                     <connections>
                         <segue destination="ySb-rr-6Mt" kind="presentation" identifier="ReplySegue" id="8Ff-8C-Jtu"/>
+                        <segue destination="ExW-E6-Qzt" kind="presentation" identifier="LoginSegue" modalTransitionStyle="crossDissolve" id="VF0-x6-W4c"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Il0-Cq-4Rf" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1249,6 +1250,6 @@
         <image name="input-outline" width="7" height="44"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="iQ4-kD-vZc"/>
+        <segue reference="VF0-x6-W4c"/>
     </inferredMetricsTieBreakers>
 </document>

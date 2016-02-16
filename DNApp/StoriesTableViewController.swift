@@ -24,9 +24,7 @@ class StoriesTableViewController: UITableViewController, StoryTableViewCellDeleg
 	}
 	
 	func loadStories(section: String, page: Int) {		// loadStories 其实是要获得一个 变量名为 stories 的 JSON 对象。
-		print("loadStories 载入了")
 		DNService.storiesForSection(section, page: page) { (getJSON) -> () in
-			print("hello")
             self.stories        = getJSON["stories"]
 			self.tableView.reloadData()
 			self.view.hideLoading()
@@ -43,7 +41,6 @@ class StoriesTableViewController: UITableViewController, StoryTableViewCellDeleg
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		print("viewDidLoad")	
 		tableView.estimatedRowHeight = 100
 		tableView.rowHeight          = UITableViewAutomaticDimension
 		loadStories("", page: 1)
@@ -52,7 +49,7 @@ class StoriesTableViewController: UITableViewController, StoryTableViewCellDeleg
 	
 	override func viewDidAppear(animated: Bool) {
 		super.viewDidAppear(true)
-		print("viewDidAppear")
+		self.tableView.tableFooterView = UIView(frame:CGRectZero)		// 去掉多出来的分隔线
 		if isFirstTime {
 			view.showLoading()
 			isFirstTime = false
@@ -91,16 +88,16 @@ class StoriesTableViewController: UITableViewController, StoryTableViewCellDeleg
 	func menuViewControllerDidTouchTop(controller: MenuViewController) {
 		view.showLoading()
 		loadStories("", page: 1)
-		navigationItem.title = "Top Stories"
-		section = ""
+        navigationItem.title = "Top Stories"
+        section              = ""
 		
 	}
 	
 	func menuViewControllerDidTouchRecent(controller: MenuViewController) {
 		view.showLoading()
 		loadStories("recent", page: 1)
-		navigationItem.title = "Recent Stories"
-		section = "recent"
+        navigationItem.title = "Recent Stories"
+        section              = "recent"
 		
 	}
 	
@@ -111,17 +108,15 @@ class StoriesTableViewController: UITableViewController, StoryTableViewCellDeleg
 	
 	
 	//MARK: StoryTableViewCellDelegate
-	
 	func storyTableViewCellDidTouchUpvote(cell: StoryTableViewCell, sender: AnyObject) {
 		if let token = LocalStore.getToken() {
-			let indexPath = tableView.indexPathForCell(cell)!		// 通过 cell 的点击 获得 他的路径在第几排. 再根据路径来映射某一行的 cell 的数据
-			let story = stories[indexPath.row]
-			let storyId = story["id"].int!							// 根据排数获得 对应的 ID
+           let indexPath	= tableView.indexPathForCell(cell)!// 通过 cell 的点击 获得 他的路径在第几排. 再根据路径来映射某一行的 cell 的数据
+           let story		= stories[indexPath.row]
+           let storyId		= story["id"].int!// 根据排数获得 对应的 ID
 			DNService.upvoteStoryWithId(storyId, token: token, responseclose: { (successful) -> () in
-				 print(successful)
 			})
-			cell.upvoteButton.setImage(UIImage(named: "icon-upvote-active"), forState: UIControlState.Normal)
-			cell.upvoteButton.setTitle(String(story["vote_count"].int! + 1), forState: UIControlState.Normal)
+			LocalStore.saveUpvotedStory(storyId)
+			cell.configureWithStory(story)
 		} else {
 			performSegueWithIdentifier("LoginSegue", sender: self)
 		}
@@ -134,24 +129,24 @@ class StoriesTableViewController: UITableViewController, StoryTableViewCellDeleg
 	// MARk: Misc
 	override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
 		if segue.identifier == "CommentsSegue" {
-            let toView    = segue.destinationViewController as! CommentsTableViewController
-            let indexPath = tableView.indexPathForCell(sender as! UITableViewCell)!//获取 tableView 里 sender 这个 cell，这个函数是 给个 Cell，返回 IndexPath。这里得到了 Cell 实例的indexPath（通过 sender 传过来）
-            toView.story  = stories[indexPath.row] //这里就是提前给 CommentsTableViewController 准备的数据
+            let toView			= segue.destinationViewController as! CommentsTableViewController
+            let indexPath		= tableView.indexPathForCell(sender as! UITableViewCell)!//获取 tableView 里 sender 这个 cell，这个函数是 给个 Cell，返回 IndexPath。这里得到了 Cell 实例的indexPath（通过 sender 传过来）
+				toView.story	= stories[indexPath.row]//这里就是提前给 CommentsTableViewController 准备的数据
 		}
 		if segue.identifier == "WebSegue" {
-			let toView = segue.destinationViewController as! WebViewController
-			let indexPath = sender as! NSIndexPath
-			let url = stories[indexPath.row]["url"].string!
-			toView.url = url
-			toView.transitioningDelegate = transitionManager
+            let toView			= segue.destinationViewController as! WebViewController
+            let indexPath		= sender as! NSIndexPath
+            let url				= stories[indexPath.row]["url"].string!
+				toView.url		= url
+				toView.transitioningDelegate = transitionManager
 		}
 		if segue.identifier == "MenuSegue" {
-			let toView = segue.destinationViewController as! MenuViewController
-			toView.delegate = self	// self 指的是实例化的 StoiresTableViewContorller，由实例化的 这个Contorller 来代理 MenuViewController 的请求。
+            let toView			= segue.destinationViewController as! MenuViewController
+				toView.delegate = self// self 指的是实例化的 StoiresTableViewContorller，由实例化的 这个Contorller 来代理 MenuViewController 的请求。
 		}
 		if segue.identifier == "LoginSegue" {
-			let toView = segue.destinationViewController as! LoginViewController
-			toView.delegate = self
+            let toView			= segue.destinationViewController as! LoginViewController
+				toView.delegate = self
 		}
 	}
 	
