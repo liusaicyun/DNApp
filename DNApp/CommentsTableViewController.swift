@@ -24,7 +24,7 @@ class CommentsTableViewController: UITableViewController, CommentTableViewCellDe
 		return comments.count + 1
 	}
 	
-	override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+	override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {	// 这个函数的意思是用户触碰到了某个 cell 里面的对象时，执行函数内代码
 			let	identifer				= indexPath.row == 0 ? "StoryCell" : "CommentCell"
 			let	cell					= tableView.dequeueReusableCellWithIdentifier(identifer)! as UITableViewCell
 
@@ -46,16 +46,18 @@ class CommentsTableViewController: UITableViewController, CommentTableViewCellDe
 	
 	// MARK: CommentTableViewControllerDelegate
 	
-	func commentTableViewCellDidTouchUpvote	(cell: CommentTableViewCell) {
-		if	let token		= LocalStore.getToken() {
-			let indexPath	= tableView.indexPathForCell(cell)!
-			let comment		= comments[indexPath.row - 1]
-			let commentId	= comment["id"].int!
-			DNService.upvoteCommentWithId(commentId, token: token, responseclose: { (successful) -> () in
+	func commentTableViewCellDidTouchUpvote	(cell: CommentTableViewCell) {	// 本函数，判断用户是否登录，如未，谈登录，如果已经登录了，识别用户点击的 commentId ，并将这个 commentupvote 发送给 designernews。并在本地记录下来，触发view变更
+		if	let token		= LocalStore.getToken() {						// 识别是否登录
+			let indexPath	= tableView.indexPathForCell(cell)!				// 获取点击的cell
+			let comment		= comments[indexPath.row - 1]					// 获取cell的comment数据
+			let commentId	= comment["id"].int!							// 获取commentid数据
+			DNService.upvoteCommentWithId(commentId, token: token, responseclose: { (successful) -> () in //提交 upvote 到服务端
 				
 			})
-			LocalStore.saveUpvotedComment	(commentId)
-			cell.configureWithComment		(comment)
+			LocalStore.saveUpvotedComment	(commentId)						// 本地保存数据
+			cell.configureWithComment		(comment)						// 触发view变更
+		} else {
+			performSegueWithIdentifier("LoginSegue", sender: self)
 		}
 	}
 	
@@ -67,13 +69,15 @@ class CommentsTableViewController: UITableViewController, CommentTableViewCellDe
 	
 	func storyTableViewCellDidTouchUpvote	(cell: StoryTableViewCell, sender: AnyObject) {
 		if	let token = LocalStore.getToken() {
-			let indexPath = tableView.indexPathForCell(cell)
+			let indexPath = tableView.indexPathForCell(cell)				// 因为 commentspage 里面 只有一个 story 所以 indexPath 似乎没有什么必要
 			let storyId = story["id"].int!
 			DNService.upvoteStoryWithId(storyId, token: token, responseclose: { (successful) -> () in
 				
 			})
 			LocalStore.saveUpvotedStory(storyId)
 			cell.configureWithStory(story)
+		} else {
+			performSegueWithIdentifier("LoginSegue", sender: self)
 		}
 	}
 	
