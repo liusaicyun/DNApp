@@ -1,4 +1,5 @@
 //
+
 //  LoginViewController.swift
 //  DNApp
 //
@@ -8,14 +9,18 @@
 
 import UIKit
 
+protocol LoginViewControllerDelegate: class {
+	func loginViewControllerDidLogin(controller: LoginViewController)
+}
+
 class LoginViewController: UIViewController,UITextFieldDelegate {
 
-	@IBOutlet weak var dialogView: DesignableView!
-	@IBOutlet weak var emailTextField: DesignableTextField!
-	@IBOutlet weak var passwordTextField: DesignableTextField!
-	@IBOutlet weak var emailImageView: SpringImageView!
-	@IBOutlet weak var passwordImageView: SpringImageView!
-	
+    @IBOutlet	weak var	dialogView:        DesignableView!
+    @IBOutlet	weak var	emailTextField:    DesignableTextField!
+    @IBOutlet	weak var	passwordTextField: DesignableTextField!
+    @IBOutlet	weak var	emailImageView:    SpringImageView!
+    @IBOutlet	weak var	passwordImageView: SpringImageView!
+				weak var	delegate:          LoginViewControllerDelegate?
 	
 	override func preferredStatusBarStyle() -> UIStatusBarStyle {
 		return UIStatusBarStyle.LightContent
@@ -29,6 +34,9 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
 
 		DNService.loginWithEmail(emailTextField.text!, password: passwordTextField.text!) { (token) -> () in
 			if let token = token { // 意思是如果 token 有值，则...
+				LocalStore.saveToken(token)
+				self.dismissViewControllerAnimated(true, completion: nil)
+				self.delegate?.loginViewControllerDidLogin(self)
 			} else {
 				self.dialogView.animation = "shake"
 				self.dialogView.animate()
@@ -52,22 +60,22 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
 	
 	func textFieldDidBeginEditing(textField: UITextField) {
 		if textField == emailTextField {	//如果 emailTextField 正在输入，则换图，执行动画。否则（没有在输入，就是常态的时候，或者输入的是 passwordTextField，icon恢复正常
-			emailImageView.image = UIImage(named: "icon-mail-active")
+        emailImageView.image    = UIImage(named: "icon-mail-active")
 			emailImageView.animate()
 		} else {
-			emailImageView.image = UIImage(named: "icon-mail")
+        emailImageView.image    = UIImage(named: "icon-mail")
 		}
-		
+
 		if textField == passwordTextField {
-			passwordImageView.image	= UIImage(named: "icon-password-active")
+        passwordImageView.image = UIImage(named: "icon-password-active")
 			passwordImageView.animate()
 		} else {
-			passwordImageView.image = UIImage(named: "icon-password")
+        passwordImageView.image = UIImage(named: "icon-password")
 		}
 	}
-	
+
 	func textFieldDidEndEditing(textField: UITextField) {
-		emailImageView.image = UIImage(named: "icon-mail")
-		passwordImageView.image = UIImage(named:"icon-password")
+        emailImageView.image    = UIImage(named: "icon-mail")
+        passwordImageView.image = UIImage(named:"icon-password")
 	}
 }

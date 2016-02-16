@@ -10,13 +10,14 @@ import UIKit
 
 
 
-class StoriesTableViewController: UITableViewController,StoryTableViewCellDelegate, MenuViewControllerDelegate {
+class StoriesTableViewController: UITableViewController, StoryTableViewCellDelegate, MenuViewControllerDelegate, LoginViewControllerDelegate {
 	
 	
     let transitionManager = TransitionManager()
     var stories: JSON!    = []
     var isFirstTime       = true
     var section           = ""		// section 指的是当前的 section
+	@IBOutlet weak var loginButton: UIBarButtonItem!
 	
 	func refreshStories() {
 		loadStories(section, page: 1)
@@ -26,10 +27,17 @@ class StoriesTableViewController: UITableViewController,StoryTableViewCellDelega
 		print("loadStories 载入了")
 		DNService.storiesForSection(section, page: page) { (getJSON) -> () in
 			print("hello")
-			self.stories = getJSON["stories"]
+            self.stories        = getJSON["stories"]
 			self.tableView.reloadData()
 			self.view.hideLoading()
 			self.refreshControl?.endRefreshing()
+		}
+		if LocalStore.getToken() == nil {
+            loginButton.title   = "Login"
+            loginButton.enabled = true
+		} else {
+            loginButton.title   = ""
+            loginButton.enabled = false
 		}
 	}
 	
@@ -96,6 +104,11 @@ class StoriesTableViewController: UITableViewController,StoryTableViewCellDelega
 		
 	}
 	
+	func menuViewControllerDidTouchLogout(controller: MenuViewController) {
+		loadStories(section, page: 1)
+		view.showLoading()
+	}
+	
 	
 	//MARK: StoryTableViewCellDelegate
 	
@@ -125,6 +138,17 @@ class StoriesTableViewController: UITableViewController,StoryTableViewCellDelega
 			let toView = segue.destinationViewController as! MenuViewController
 			toView.delegate = self	// self 指的是实例化的 StoiresTableViewContorller，由实例化的 这个Contorller 来代理 MenuViewController 的请求。
 		}
+		if segue.identifier == "LoginSegue" {
+			let toView = segue.destinationViewController as! LoginViewController
+			toView.delegate = self
+		}
+	}
+	
+	// MARK: LoginViewControllerDelegate
+	
+	func loginViewControllerDidLogin(controller: LoginViewController) {
+		loadStories(section, page: 1)
+		view.showLoading()
 	}
 	
 }

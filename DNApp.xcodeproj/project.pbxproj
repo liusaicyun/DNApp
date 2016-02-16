@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		B61EE32E1C62504E00073F16 /* CommentsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61EE32D1C62504E00073F16 /* CommentsTableViewController.swift */; };
+		B6345B0F1C72F5A300B023CB /* LocalStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6345B0E1C72F5A300B023CB /* LocalStore.swift */; };
 		B63D9ACD1C609B7B004860A7 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63D9ACC1C609B7B004860A7 /* Data.swift */; };
 		B64998F01C635D7100D9EDD5 /* CommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64998EF1C635D7100D9EDD5 /* CommentTableViewCell.swift */; };
 		B652E5F61C5DFD9000938AE8 /* StoriesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B652E5F51C5DFD9000938AE8 /* StoriesTableViewController.swift */; };
@@ -146,6 +147,7 @@
 
 /* Begin PBXFileReference section */
 		B61EE32D1C62504E00073F16 /* CommentsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentsTableViewController.swift; sourceTree = "<group>"; };
+		B6345B0E1C72F5A300B023CB /* LocalStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalStore.swift; sourceTree = "<group>"; };
 		B63D9ACC1C609B7B004860A7 /* Data.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		B64998EF1C635D7100D9EDD5 /* CommentTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentTableViewCell.swift; sourceTree = "<group>"; };
 		B652E5F51C5DFD9000938AE8 /* StoriesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoriesTableViewController.swift; sourceTree = "<group>"; };
@@ -220,6 +222,7 @@
 		B6556D5B1C5B880F00822FB1 = {
 			isa = PBXGroup;
 			children = (
+				B6345B0E1C72F5A300B023CB /* LocalStore.swift */,
 				B6556D661C5B880F00822FB1 /* DNApp */,
 				B6556D651C5B880F00822FB1 /* Products */,
 				B655AFDE1C665B7800590EB6 /* Alamofire.xcodeproj */,
@@ -502,6 +505,7 @@
 				B6556DF71C5B9C0E00822FB1 /* SpringTextView.swift in Sources */,
 				B6556DEC1C5B9C0E00822FB1 /* KeyboardLayoutConstraint.swift in Sources */,
 				B6BF13911C5E5268001E6A52 /* WebViewController.swift in Sources */,
+				B6345B0F1C72F5A300B023CB /* LocalStore.swift in Sources */,
 				B6556DF31C5B9C0E00822FB1 /* SpringButton.swift in Sources */,
 				B64998F01C635D7100D9EDD5 /* CommentTableViewCell.swift in Sources */,
 				B6556DF21C5B9C0E00822FB1 /* SpringAnimation.swift in Sources */,
