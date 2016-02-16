@@ -113,7 +113,18 @@ class StoriesTableViewController: UITableViewController, StoryTableViewCellDeleg
 	//MARK: StoryTableViewCellDelegate
 	
 	func storyTableViewCellDidTouchUpvote(cell: StoryTableViewCell, sender: AnyObject) {
-		//TODO: Implenment Upvote
+		if let token = LocalStore.getToken() {
+			let indexPath = tableView.indexPathForCell(cell)!		// 通过 cell 的点击 获得 他的路径在第几排. 再根据路径来映射某一行的 cell 的数据
+			let story = stories[indexPath.row]
+			let storyId = story["id"].int!							// 根据排数获得 对应的 ID
+			DNService.upvoteStoryWithId(storyId, token: token, responseclose: { (successful) -> () in
+				 print(successful)
+			})
+			cell.upvoteButton.setImage(UIImage(named: "icon-upvote-active"), forState: UIControlState.Normal)
+			cell.upvoteButton.setTitle(String(story["vote_count"].int! + 1), forState: UIControlState.Normal)
+		} else {
+			performSegueWithIdentifier("LoginSegue", sender: self)
+		}
 	}
 	
 	func storyTableViewCellDidTouchComment(cell: StoryTableViewCell, sender: AnyObject) {

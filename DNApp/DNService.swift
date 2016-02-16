@@ -91,4 +91,49 @@ struct DNService {
 			responseString(token: token)
 		}
 	}
+	
+	static func upvoteStoryWithId(storyID: Int, token: String, responseclose: (successful: Bool) -> ()) {
+		let urlString = baseURL + ResourcePath.StoryUpvote(storyId: storyID).description
+		upvoteWithUrlString(urlString, token: token, responseclose: responseclose)
+	}
+	
+	static func upvoteCommentWithId(commentId: Int, token: String, responseclose: (successful: Bool) -> ()) {
+		let urlString = baseURL + ResourcePath.CommentUpvote(commentId: commentId).description
+		upvoteWithUrlString(urlString, token: token, responseclose: responseclose)
+	}
+	
+	private static func upvoteWithUrlString(urlString: String, token: String, responseclose: (successful: Bool) -> ()) {
+		let request = NSMutableURLRequest(URL: NSURL(string: urlString)!)
+		request.HTTPMethod = "POST"
+		request.setValue("Bearer \(token)", forHTTPHeaderField:"Authorization" )
+		
+		Alamofire.request(request).responseJSON { response in
+			let successful = response.response?.statusCode == 200
+			responseclose(successful: successful)
+		}
+	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
