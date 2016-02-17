@@ -147,7 +147,7 @@
 
 /* Begin PBXFileReference section */
 		B61EE32D1C62504E00073F16 /* CommentsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentsTableViewController.swift; sourceTree = "<group>"; };
-		B6345B0E1C72F5A300B023CB /* LocalStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocalStore.swift; path = ../LocalStore.swift; sourceTree = "<group>"; };
+		B6345B0E1C72F5A300B023CB /* LocalStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalStore.swift; sourceTree = "<group>"; };
 		B63D9ACC1C609B7B004860A7 /* Data.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		B64998EF1C635D7100D9EDD5 /* CommentTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentTableViewCell.swift; sourceTree = "<group>"; };
 		B652E5F51C5DFD9000938AE8 /* StoriesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoriesTableViewController.swift; sourceTree = "<group>"; };
@@ -241,7 +241,6 @@
 			children = (
 				B655AF921C662DB200590EB6 /* TPKeyboardAvoiding */,
 				B6556DC01C5B9C0D00822FB1 /* Spring */,
-				B6345B0E1C72F5A300B023CB /* LocalStore.swift */,
 				B6556D6B1C5B880F00822FB1 /* Main.storyboard */,
 				B655AF831C66228300590EB6 /* NavigationViewController.swift */,
 				B64998EF1C635D7100D9EDD5 /* CommentTableViewCell.swift */,
@@ -256,6 +255,7 @@
 				B63D9ACC1C609B7B004860A7 /* Data.swift */,
 				B6E372A41C60909400B57592 /* SwiftyJSON.swift */,
 				B655AFDC1C664EE600590EB6 /* DNService.swift */,
+				B6345B0E1C72F5A300B023CB /* LocalStore.swift */,
 				B6556D711C5B880F00822FB1 /* Assets.xcassets */,
 				B6556D731C5B880F00822FB1 /* LaunchScreen.storyboard */,
 				B6556D761C5B880F00822FB1 /* Info.plist */,

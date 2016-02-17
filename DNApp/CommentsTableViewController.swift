@@ -68,10 +68,10 @@ class CommentsTableViewController: UITableViewController, CommentTableViewCellDe
 	//MARK: StoryTableViewCellDelegate
 	
 	func storyTableViewCellDidTouchUpvote	(cell: StoryTableViewCell, sender: AnyObject) {
-		if	let token = LocalStore.getToken() {
-			let indexPath = tableView.indexPathForCell(cell)				// 因为 commentspage 里面 只有一个 story 所以 indexPath 似乎没有什么必要
-			let storyId = story["id"].int!
-			DNService.upvoteStoryWithId(storyId, token: token, responseclose: { (successful) -> () in
+		if	let token		= LocalStore.getToken() {
+			let indexPath	= tableView.indexPathForCell(cell)				// 因为 commentspage 里面 只有一个 story 所以 indexPath 似乎没有什么必要
+			let storyId		= story["id"].int!
+				DNService.upvoteStoryWithId(storyId, token: token, responseclose: { (successful) -> () in
 				
 			})
 			LocalStore.saveUpvotedStory(storyId)
