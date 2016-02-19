@@ -10,12 +10,12 @@ import UIKit
 
 class WebViewController: UIViewController, UIWebViewDelegate {
 
-	@IBOutlet weak var webView: UIWebView!
-	var url: String!
-	@IBOutlet weak var progressView: UIProgressView!
-    var hasFinishedLoading = false
+	@IBOutlet weak	var webView:		UIWebView!
+					var url:			String!
+	@IBOutlet weak	var progressView:	UIProgressView!
+					var hasFinishedLoading = false
 	
-	@IBAction func closeButtonDidTouch(sender: AnyObject) {
+	@IBAction	func closeButtonDidTouch(sender: AnyObject) {
 		dismissViewControllerAnimated(true, completion: nil)
 	}
 	

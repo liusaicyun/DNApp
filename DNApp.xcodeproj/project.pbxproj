@@ -56,6 +56,7 @@
 		B655AFF71C665BA800590EB6 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B655AFE91C665B7800590EB6 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B6940F951C5CED97007EC279 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6940F941C5CED97007EC279 /* LoginViewController.swift */; };
 		B6940F971C5D19BF007EC279 /* LearnViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6940F961C5D19BF007EC279 /* LearnViewController.swift */; };
+		B6B836051C74BEE2000A4B76 /* ReplyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B836041C74BEE2000A4B76 /* ReplyViewController.swift */; };
 		B6BF138F1C5E50CD001E6A52 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6BF138E1C5E50CD001E6A52 /* MenuViewController.swift */; };
 		B6BF13911C5E5268001E6A52 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6BF13901C5E5268001E6A52 /* WebViewController.swift */; };
 		B6BF13931C5E53B0001E6A52 /* StoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6BF13921C5E53B0001E6A52 /* StoryTableViewCell.swift */; };
@@ -147,7 +148,7 @@
 
 /* Begin PBXFileReference section */
 		B61EE32D1C62504E00073F16 /* CommentsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentsTableViewController.swift; sourceTree = "<group>"; };
-		B6345B0E1C72F5A300B023CB /* LocalStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalStore.swift; sourceTree = "<group>"; };
+		B6345B0E1C72F5A300B023CB /* LocalStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocalStore.swift; path = /Users/liusaicyun/Dropbox/Code/DNApp/DNApp/LocalStore.swift; sourceTree = "<absolute>"; };
 		B63D9ACC1C609B7B004860A7 /* Data.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		B64998EF1C635D7100D9EDD5 /* CommentTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentTableViewCell.swift; sourceTree = "<group>"; };
 		B652E5F51C5DFD9000938AE8 /* StoriesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoriesTableViewController.swift; sourceTree = "<group>"; };
@@ -201,6 +202,7 @@
 		B655AFDE1C665B7800590EB6 /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Alamofire.xcodeproj; path = "Alamofire-master/Alamofire.xcodeproj"; sourceTree = "<group>"; };
 		B6940F941C5CED97007EC279 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		B6940F961C5D19BF007EC279 /* LearnViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LearnViewController.swift; sourceTree = "<group>"; };
+		B6B836041C74BEE2000A4B76 /* ReplyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReplyViewController.swift; sourceTree = "<group>"; };
 		B6BF138E1C5E50CD001E6A52 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		B6BF13901C5E5268001E6A52 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		B6BF13921C5E53B0001E6A52 /* StoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryTableViewCell.swift; sourceTree = "<group>"; };
@@ -245,6 +247,7 @@
 				B655AF831C66228300590EB6 /* NavigationViewController.swift */,
 				B64998EF1C635D7100D9EDD5 /* CommentTableViewCell.swift */,
 				B61EE32D1C62504E00073F16 /* CommentsTableViewController.swift */,
+				B6B836041C74BEE2000A4B76 /* ReplyViewController.swift */,
 				B6556D671C5B880F00822FB1 /* AppDelegate.swift */,
 				B652E5F51C5DFD9000938AE8 /* StoriesTableViewController.swift */,
 				B6BF13921C5E53B0001E6A52 /* StoryTableViewCell.swift */,
@@ -486,6 +489,7 @@
 				B6556DE91C5B9C0E00822FB1 /* DesignableView.swift in Sources */,
 				B6940F951C5CED97007EC279 /* LoginViewController.swift in Sources */,
 				B6556DE61C5B9C0E00822FB1 /* DesignableTabBarController.swift in Sources */,
+				B6B836051C74BEE2000A4B76 /* ReplyViewController.swift in Sources */,
 				B6556DE31C5B9C0E00822FB1 /* DesignableButton.swift in Sources */,
 				B655AF9B1C662DB200590EB6 /* TPKeyboardAvoidingCollectionView.m in Sources */,
 				B6556D701C5B880F00822FB1 /* DNApp.xcdatamodeld in Sources */,

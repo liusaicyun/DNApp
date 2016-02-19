@@ -50,8 +50,8 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		emailTextField.delegate = self
-		passwordTextField.delegate = self
+		emailTextField.delegate		= self
+		passwordTextField.delegate	= self
 	}
 	
 	override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
@@ -60,22 +60,22 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
 	
 	func textFieldDidBeginEditing(textField: UITextField) {
 		if textField == emailTextField {	//如果 emailTextField 正在输入，则换图，执行动画。否则（没有在输入，就是常态的时候，或者输入的是 passwordTextField，icon恢复正常
-        emailImageView.image    = UIImage(named: "icon-mail-active")
+			emailImageView.image    = UIImage(named: "icon-mail-active")
 			emailImageView.animate()
 		} else {
-        emailImageView.image    = UIImage(named: "icon-mail")
+			emailImageView.image    = UIImage(named: "icon-mail")
 		}
 
 		if textField == passwordTextField {
-        passwordImageView.image = UIImage(named: "icon-password-active")
+			passwordImageView.image = UIImage(named: "icon-password-active")
 			passwordImageView.animate()
 		} else {
-        passwordImageView.image = UIImage(named: "icon-password")
+			passwordImageView.image = UIImage(named: "icon-password")
 		}
 	}
 
 	func textFieldDidEndEditing(textField: UITextField) {
-        emailImageView.image    = UIImage(named: "icon-mail")
-        passwordImageView.image = UIImage(named:"icon-password")
+        emailImageView.image		= UIImage(named: "icon-mail")
+        passwordImageView.image		= UIImage(named:"icon-password")
 	}
 }

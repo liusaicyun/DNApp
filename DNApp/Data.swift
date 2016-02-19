@@ -6,6 +6,8 @@
 //  Copyright © 2016年 SaiCyun Liu. All rights reserved.
 //
 import UIKit
+
+
 var data: JSON = [
 	[
 		"id": 44959,

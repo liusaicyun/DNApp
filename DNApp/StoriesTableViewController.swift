@@ -151,8 +151,7 @@ class StoriesTableViewController: UITableViewController, StoryTableViewCellDeleg
 	}
 	
 	// MARK: LoginViewControllerDelegate
-	
-	func loginViewControllerDidLogin(controller: LoginViewController) {
+	func loginViewControllerDidLogin(controller: LoginViewController) { //意思是说，在 loginViewController 里成功登录后，需要 StoriesTableViewController 刷新页面。并且这个 Delegate 函数指认 LoginViewController, 其它的不认
 		loadStories(section, page: 1)
 		view.showLoading()
 	}

@@ -800,7 +800,7 @@
                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                             <inset key="contentEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
                                             <inset key="titleEdgeInsets" minX="5" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                            <state key="normal" title="244" image="icon-comment">
+                                            <state key="normal" title="244" image="icon-reply">
                                                 <color key="titleColor" red="0.58431372550000005" green="0.65098039220000004" blue="0.70980392160000005" alpha="1" colorSpace="calibratedRGB"/>
                                             </state>
                                             <variation key="default">
@@ -962,7 +962,7 @@
                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                             <inset key="contentEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
                                             <inset key="titleEdgeInsets" minX="5" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                            <state key="normal" image="icon-reply">
+                                            <state key="normal" title="244" image="icon-reply">
                                                 <color key="titleColor" red="0.58431372550000005" green="0.65098039220000004" blue="0.70980392160000005" alpha="1" colorSpace="calibratedRGB"/>
                                             </state>
                                             <variation key="default">
@@ -1170,10 +1170,10 @@
             </objects>
             <point key="canvasLocation" x="779" y="1153"/>
         </scene>
-        <!--View Controller-->
+        <!--Reply View Controller-->
         <scene sceneID="d5b-Fs-Rpz">
             <objects>
-                <viewController storyboardIdentifier="Comment" id="ySb-rr-6Mt" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Comment" id="ySb-rr-6Mt" customClass="ReplyViewController" customModule="DNApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="59x-Sq-9vy"/>
                         <viewControllerLayoutGuide type="bottom" id="zpp-vj-3YR"/>
@@ -1182,19 +1182,54 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="6-Comment" translatesAutoresizingMaskIntoConstraints="NO" id="22F-Ok-wzb">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g5h-hz-Ove">
-                                <rect key="frame" x="10" y="28" width="39" height="30"/>
-                                <state key="normal" title="Close"/>
-                                <connections>
-                                    <segue destination="834-jC-Ar1" kind="unwind" unwindAction="unwindToViewController:" id="s03-Ct-vVj"/>
-                                </connections>
-                            </button>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6TV-fc-7Zf">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="64"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="64" id="cuB-5q-3hL"/>
+                                </constraints>
+                                <color key="barTintColor" red="0.16862745098039217" green="0.38431372549019605" blue="0.82352941176470584" alpha="1" colorSpace="calibratedRGB"/>
+                                <textAttributes key="titleTextAttributes">
+                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </textAttributes>
+                                <items>
+                                    <navigationItem title="Reply" id="qV6-Wc-Yef">
+                                        <barButtonItem key="leftBarButtonItem" image="icon-close" id="xAG-Fj-ejp">
+                                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <connections>
+                                                <segue destination="834-jC-Ar1" kind="unwind" unwindAction="unwindToViewController:" id="RKP-hn-eGk"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" title="Send" id="8M6-cx-P4l">
+                                            <color key="tintColor" red="0.21568627450980393" green="0.72941176470588232" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                                            <connections>
+                                                <action selector="sendButtonDidTouch:" destination="ySb-rr-6Mt" id="Cfs-HJ-L1d"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="D62-nL-7Yt">
+                                <rect key="frame" x="10" y="74" width="300" height="484"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="6TV-fc-7Zf" firstAttribute="leading" secondItem="nMX-5c-qph" secondAttribute="leading" id="6Iu-ro-CSw"/>
+                            <constraint firstItem="D62-nL-7Yt" firstAttribute="top" secondItem="6TV-fc-7Zf" secondAttribute="bottom" constant="10" id="ExK-dO-A7b"/>
+                            <constraint firstAttribute="trailing" secondItem="6TV-fc-7Zf" secondAttribute="trailing" id="SKA-AH-cpm"/>
+                            <constraint firstItem="6TV-fc-7Zf" firstAttribute="top" secondItem="nMX-5c-qph" secondAttribute="top" id="WfH-Ia-HIF"/>
+                            <constraint firstItem="zpp-vj-3YR" firstAttribute="top" secondItem="D62-nL-7Yt" secondAttribute="bottom" constant="10" id="ZO4-a3-RCL" customClass="KeyboardLayoutConstraint" customModule="DNApp" customModuleProvider="target"/>
+                            <constraint firstItem="D62-nL-7Yt" firstAttribute="leading" secondItem="nMX-5c-qph" secondAttribute="leading" constant="10" id="jJe-lw-LTB"/>
+                            <constraint firstAttribute="trailing" secondItem="D62-nL-7Yt" secondAttribute="trailing" constant="10" id="pue-Jm-4Oe"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="replyTextView" destination="D62-nL-7Yt" id="E7x-bf-dxh"/>
+                    </connections>
                 </viewController>
                 <exit id="834-jC-Ar1" userLabel="Exit" sceneMemberID="exit"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rgy-hF-xQt" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1229,7 +1264,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="6-Comment" width="320" height="568"/>
         <image name="action-share" width="19" height="27"/>
         <image name="bg-credits" width="280" height="140"/>
         <image name="big-credits" width="47" height="44"/>
@@ -1250,6 +1284,6 @@
         <image name="input-outline" width="7" height="44"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="VF0-x6-W4c"/>
+        <segue reference="4il-wX-WeP"/>
     </inferredMetricsTieBreakers>
 </document>

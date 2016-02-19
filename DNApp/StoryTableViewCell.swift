@@ -33,7 +33,7 @@ class StoryTableViewCell: UITableViewCell {
 		delegate?.storyTableViewCellDidTouchUpvote(self, sender: sender)
 	}
 
-	@IBAction func commentButtonDidTouch(sender: AnyObject) {
+	@IBAction func commentButtonDidTouch(sender: AnyObject) {		// 这里的 sender 其实就是那个按钮对象
         commentButton.animation = "pop"
         commentButton.force     = 3
 		commentButton.animate()
@@ -41,7 +41,7 @@ class StoryTableViewCell: UITableViewCell {
 		delegate?.storyTableViewCellDidTouchComment(self, sender: sender)	// sender 是 commentButtonDidTouch 中的 sender，意思是完全转发出去
 	}
 
-	func configureWithStory(story: JSON) { //让 TableViewCell 的实例跟传入的 story 数据做映射。只要 story 符合 DataSource
+	func configureWithStory(story: JSON) { //让 TableViewCell 的实例跟传入的 story 数据做映射。只要 story 符合 DataSource.  实际意思就是给个 JSON 格式的 story 映射到 cell 的所有元素
         let title                        = story["title"].string!
         let badge                        = story["badge"].string ?? ""
         let userDisplayname              = story["user_display_name"].string!
